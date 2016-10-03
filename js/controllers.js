@@ -9,6 +9,11 @@ angular.module('cv.controllers', [])
 
             $scope.choise = 0;
             $scope.calligraphy = false;
+            $scope.absurd = false;
+
+            $scope.toggleAbsurd = function(){
+                $scope.absurd = !$scope.absurd;
+            };
 
             $scope.typo = function () {
                 $scope.typography = $scope.typos[$scope.choise];
