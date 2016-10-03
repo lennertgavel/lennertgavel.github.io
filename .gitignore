@@ -1,0 +1,6 @@
+.idea/
+
+# OS X
+/.com.apple.timemachine.supported
+/.fseventsd
+.DS_Store

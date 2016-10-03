@@ -1,0 +1,85 @@
+body {
+  background: #EF7360 url('../img/noise.png') fixed;
+}
+body #cv {
+  max-width: 800px;
+  margin: 25px auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  background: white;
+  -webkit-box-shadow: -9px 13px 22px 1px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: -9px 13px 22px 1px rgba(0, 0, 0, 0.17);
+  box-shadow: -9px 13px 22px 1px rgba(0, 0, 0, 0.17);
+}
+body #cv #innerBox {
+  border: 1px solid #212121;
+  padding: 180px 20px 20px;
+  position: relative;
+}
+body #cv h1#name {
+  position: absolute;
+  background: white;
+  top: -17px;
+  left: -3px;
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 0.8em;
+  padding: 0 20px 20px 0;
+}
+body #cv img {
+  max-width: 100%;
+}
+body #cv .body {
+  padding-left: 25px;
+}
+body #cv .body .year,
+body #cv .body .pre-letter {
+  position: absolute;
+  left: 0;
+  color: #BBBBBB;
+  width: 17px;
+  border-right: 1px solid #D5D5D5;
+  font-size: 0.8em;
+  padding-top: 0.2em;
+  line-height: 8px;
+}
+body #cv .body .year {
+  font-weight: 800;
+}
+body #cv .body .text p {
+  font-family: 'Noto Serif', serif;
+  font-size: 12px;
+  line-height: 14px;
+}
+body #cv .body .progress-box {
+  height: 18px;
+  width: 100%;
+  border: 1px solid #BBBBBB;
+  padding: 2px;
+  margin: 3px 0 10px;
+}
+body #cv .body .progress-box .progress {
+  height: 12px;
+  background: #414141;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+body #cv .highlight h6 {
+  background: #212121;
+  color: whitesmoke;
+  padding: 2px;
+  width: 100%;
+}
+body #cv .header {
+  margin-left: 25px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #212121;
+}
+body #cv .header h3 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #616161;
+}
