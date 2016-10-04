@@ -25,7 +25,7 @@ angular.module('cv.controllers', [])
                 'Eczar',
                 'Baloo Bhai',
                 'Yatra One',
-                'Roboto Slab',
+                'Shrikhand',
                 'Aclonica'
             ];
 
