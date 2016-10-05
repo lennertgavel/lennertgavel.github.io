@@ -21,7 +21,7 @@ angular.module('cv.cv', ['ngRoute'])
                     title: 'GRAFISCH ONTWERP',
                     subSkills: [
                         {
-                            title: 'Illustartor / <br>Affinity design',
+                            title: 'Illustrator / <br>Affinity design',
                             percentage: '10%',
                             amount: 100
                         },
