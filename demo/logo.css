@@ -1,0 +1,42 @@
+body {
+    height: 100%;
+    background: yellow;
+    margin: 0;
+    padding: 0;
+}
+
+#side-container {
+    padding-top: 5vh;
+    margin-top: 0;
+    position: absolute;
+    left: 20vw;
+    top: 0;
+    width: 60vw;
+    height: 95vh;
+    overflow: hidden;
+}
+
+#inner-container {
+    margin: 30% 10px;
+    text-align: left;
+    position: relative;
+}
+
+#icon, #s, #s2, #y, #line, #tv {
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    top: 0;
+}
+
+#icon_target.bounce{
+    animation: bounce 4s ease infinite;
+}
+
+@keyframes bounce{
+    0% {margin: 0;}
+    20%  {margin: -10px 0 10px;}
+    50%  {margin: -4px 0 4px;}
+    70%  {margin: -6px 0 6px;}
+    100%   {margin: 0;}
+}
