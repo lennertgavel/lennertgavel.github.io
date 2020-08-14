@@ -14,7 +14,7 @@ angular.module('cv.cv', ['ngRoute'])
       console.log(Url);
       return $sce.trustAsResourceUrl(Url);
     };
-  });
+  })
 .controller('CvCtrl', ['$scope', '$timeout',
   function($scope, $timeout) {
 
