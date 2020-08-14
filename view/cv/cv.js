@@ -46,12 +46,12 @@ angular.module('cv.cv', ['ngRoute'])
                             amount: 95
                         },
                         {
-                            title: 'JAVA / Maven / <br>Linux (Bash, zsh) / Mysql',
+                            title: 'JAVA / Processing / <br>Linux (Bash, zsh) / Mysql',
                             percentage: '10%',
                             amount: 65
                         },
                         {
-                            title: 'GRUNT / Bower / NPM / GIT ',
+                            title: 'GRUNT / Bower / NPM / GIT',
                             percentage: '10%',
                             amount: 80
                         }
