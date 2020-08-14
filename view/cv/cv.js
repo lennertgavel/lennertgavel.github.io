@@ -51,7 +51,7 @@ angular.module('cv.cv', ['ngRoute'])
                             amount: 65
                         },
                         {
-                            title: 'GRUNT / Bower / NPM / GIT',
+                            title: 'GRUNT / NPM / GIT',
                             percentage: '10%',
                             amount: 80
                         }
