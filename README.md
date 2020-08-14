@@ -1,1 +1,1 @@
-cv: <a href="lennertgavel.github.io">lennertgavel.github.io</a>
+cv: <a href="https://lennertgavel.github.io">lennertgavel.github.io</a>
