@@ -5,6 +5,9 @@ body.absurd {
 body {
   background: #EF7360 url('../img/noise.png') fixed;
 }
+video {
+  width: 100%;
+}
 body #cv {
   max-width: 800px;
   margin: 25px auto;
