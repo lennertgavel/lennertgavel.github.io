@@ -21,19 +21,19 @@ angular.module('cv.cv', ['ngRoute'])
                     title: 'GRAFISCH ONTWERP',
                     subSkills: [
                         {
-                            title: 'Illustrator / <br>Affinity design',
+                            title: 'Illustrator / <br>XD',
                             percentage: '10%',
                             amount: 100
                         },
                         {
-                            title: 'Photoshop / <br>Affinity photo<br>',
+                            title: 'Photoshop / <br>After Effect / Indesign',
                             percentage: '10%',
-                            amount: 75
+                            amount: 85
                         },
                         {
-                            title: 'Indesign',
+                            title: 'Cinema4D / Sketch',
                             percentage: '10%',
-                            amount: 90
+                            amount: 65
                         }
                     ]
                 },
@@ -46,14 +46,14 @@ angular.module('cv.cv', ['ngRoute'])
                             amount: 95
                         },
                         {
-                            title: 'JAVA / Maven /  GIT / <br>Linux (Bash, zsh) / Mysql',
+                            title: 'JAVA / Maven / <br>Linux (Bash, zsh) / Mysql',
                             percentage: '10%',
-                            amount: 80
+                            amount: 65
                         },
                         {
-                            title: 'GRUNT / Bower / Eclipse ',
+                            title: 'GRUNT / Bower / NPM / GIT ',
                             percentage: '10%',
-                            amount: 60
+                            amount: 80
                         }
                     ]
                 },
