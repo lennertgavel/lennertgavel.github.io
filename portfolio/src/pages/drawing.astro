@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Carousel from '../components/Carousel.astro';
+import { tabs } from '../data/tabs';
+
+const tab = tabs.find((t) => t.slug === 'drawing')!;
+---
+
+<BaseLayout title={tab.label} activeSlug={tab.slug}>
+  <Carousel tab={tab} />
+</BaseLayout>

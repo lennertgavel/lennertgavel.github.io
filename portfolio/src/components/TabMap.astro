@@ -1,0 +1,104 @@
+---
+import { tabs, SIGNATURE } from '../data/tabs';
+
+// Icons live in each tab's public asset folder (assets/<slug>/icon.svg).
+// Glob is lazy — we only use the keys to know which tabs actually have one.
+const iconModules = import.meta.glob('../../assets/*/icon.svg');
+const tabsWithIcon = new Set(
+  Object.keys(iconModules)
+    .map((path) => path.match(/assets\/([^/]+)\/icon\.svg$/)?.[1])
+    .filter((slug): slug is string => Boolean(slug))
+);
+
+interface Props {
+  activeSlug?: string | null;
+}
+
+const { activeSlug = null } = Astro.props;
+const isHome = activeSlug === null;
+
+const activeIndex = tabs.findIndex((t) => t.slug === activeSlug);
+const aboveTabs = tabs.slice(0, activeIndex);
+const belowTabs = tabs.slice(activeIndex + 1);
+const activeTab = tabs[activeIndex];
+---
+
+{isHome ? (
+  <main class="map map--home">
+    {tabs.map((tab, i) => (
+      <a
+        class="card card--stacked"
+        href={`/${tab.slug}/`}
+        style={`--depth: ${i}; --tab-indent: ${tab.indent}; --tab-color: ${tab.color};`}
+        transition:name={`tab-${tab.slug}`}
+      >
+        <span class="card__title" transition:name={`title-${tab.slug}`}>
+          {tabsWithIcon.has(tab.slug) && (
+            <img class="card__icon" src={`/${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
+          )}
+          {tab.label}
+        </span>
+        {i === 0 && <span class="signature" transition:name="signature">{SIGNATURE}</span>}
+      </a>
+    ))}
+  </main>
+) : (
+  <main
+    class="map map--active"
+    style={`--n-above: ${aboveTabs.length}; --n-below: ${belowTabs.length}; --active-color: ${activeTab.color}; --active-accent: ${activeTab.accent};`}
+  >
+    {aboveTabs.map((tab, i) => (
+      <a
+        class="card card--peek card--above"
+        href={`/${tab.slug}/`}
+        style={`--i: ${i}; --depth: ${i}; --tab-indent: ${tab.indent}; --tab-color: ${tab.color};`}
+        transition:name={`tab-${tab.slug}`}
+      >
+        <span class="card__title" transition:name={`title-${tab.slug}`}>
+          {tabsWithIcon.has(tab.slug) && (
+            <img class="card__icon" src={`/${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
+          )}
+          {tab.label}
+        </span>
+      </a>
+    ))}
+
+    <div
+      class="card card--active"
+      style={`--depth: ${activeIndex}; --tab-indent: ${activeTab.indent}; --tab-active-indent: ${activeTab.activeIndent}; --tab-color: ${activeTab.color};`}
+      transition:name={`tab-${activeTab.slug}`}
+    >
+      <a class="card__header" href="/" aria-label="Back to home">
+        <span class="card__title" transition:name={`title-${activeTab.slug}`}>
+          {tabsWithIcon.has(activeTab.slug) && (
+            <img class="card__icon" src={`/${activeTab.slug}/icon.svg`} alt="" aria-hidden="true" />
+          )}
+          {activeTab.label}
+        </span>
+        {activeTab.slug === 'about-me' && (
+          <span class="signature" transition:name="signature">{SIGNATURE}</span>
+        )}
+      </a>
+      <div class="card__body">
+        <slot />
+      </div>
+    </div>
+
+    {belowTabs.map((tab, i) => (
+      <a
+        class="card card--peek card--below"
+        href={`/${tab.slug}/`}
+        style={`--i: ${i}; --depth: ${activeIndex + 1 + i}; --tab-indent: ${tab.indent}; --tab-color: ${tab.color};`}
+        transition:name={`tab-${tab.slug}`}
+      >
+        <span class="card__title" transition:name={`title-${tab.slug}`}>
+          {tabsWithIcon.has(tab.slug) && (
+            <img class="card__icon" src={`/${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
+          )}
+          {tab.label}
+        </span>
+      </a>
+    ))}
+  </main>
+)}
+

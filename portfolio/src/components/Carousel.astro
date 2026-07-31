@@ -1,0 +1,84 @@
+---
+import type { Tab } from '../data/tabs';
+import { getTabImages } from '../data/images';
+
+interface Props {
+  tab: Tab;
+}
+
+const { tab } = Astro.props;
+const images = getTabImages(tab.slug);
+---
+
+<div class="carousel-wrapper">
+  <div class="embla">
+    <div class="embla__container">
+      <!-- Slide 0: intro — mostly text, with a lead heading + one accent image -->
+      <div class="embla__slide embla__slide--intro">
+        <div class="intro">
+          <div class="intro__body">
+            <h2 class="intro__lead">{tab.lead}</h2>
+            <Fragment set:html={tab.intro} />
+          </div>
+          <div class="intro__figure">
+            <img class="zoomable" src={images[0]} alt={`${tab.label} — feature image`} decoding="async" draggable="false" />
+          </div>
+        </div>
+      </div>
+      <!-- Image slides -->
+      {images.slice(1).map((src, i) => (
+        <div class="embla__slide embla__slide--image">
+          <img
+            class="zoomable"
+            src={src}
+            alt={`${tab.label} — image ${i + 1}`}
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="embla__controls">
+    <button class="embla__btn" data-embla-prev aria-label="Previous slide">
+        <svg width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+            <path d="m11.52,0h0c.15,0,.26.11.26.24v3.22c0,.08-.04.16-.12.2-1.45.85-2.99,1.78-4.54,2.83-.8.54-.77,1.65.05,2.17,1.51.95,3.05,1.82,4.5,2.73.07.05.12.12.12.2v6.17c0,.13-.12.24-.26.24h-.04c-.07,0-.14-.03-.19-.07-2.93-2.79-6.45-6.04-9.42-8.53-.05-.05-.08-.11-.08-.18v-.17c0-.07.03-.13.08-.18C4.92,6.3,8.33,2.94,11.33.07c.05-.05.12-.07.19-.07Z"/>
+        </svg>
+    </button>
+    <button class="embla__btn" data-embla-next aria-label="Next slide">
+        <svg width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+            <path d="m5.6,18h0c-.15,0-.26-.11-.26-.24v-3.22c0-.08.04-.16.12-.2,1.45-.85,2.99-1.78,4.54-2.83.8-.54.77-1.65-.05-2.17-1.51-.95-3.05-1.82-4.5-2.73-.07-.05-.12-.12-.12-.2V.24c0-.13.12-.24.26-.24h.04c.07,0,.14.03.19.07,2.93,2.79,6.45,6.04,9.42,8.53.05.05.08.11.08.18v.17c0,.07-.03.13-.08.18-3.05,2.57-6.45,5.94-9.46,8.8-.05.05-.12.07-.19.07Z"/>
+        </svg>
+    </button>
+  </div>
+</div>
+
+<!-- Lightbox overlay: opened by clicking any .zoomable image -->
+<dialog class="lightbox" aria-label="Image viewer">
+  <button class="lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Previous image">
+    <svg width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+      <path d="m11.52,0h0c.15,0,.26.11.26.24v3.22c0,.08-.04.16-.12.2-1.45.85-2.99,1.78-4.54,2.83-.8.54-.77,1.65.05,2.17,1.51.95,3.05,1.82,4.5,2.73.07.05.12.12.12.2v6.17c0,.13-.12.24-.26.24h-.04c-.07,0-.14-.03-.19-.07-2.93-2.79-6.45-6.04-9.42-8.53-.05-.05-.08-.11-.08-.18v-.17c0-.07.03-.13.08-.18C4.92,6.3,8.33,2.94,11.33.07c.05-.05.12-.07.19-.07Z"/>
+    </svg>
+  </button>
+  <figure class="lightbox__stage">
+    <img class="lightbox__img" alt="" draggable="false" />
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Next image">
+    <svg width="35" height="35" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+      <path d="m5.6,18h0c-.15,0-.26-.11-.26-.24v-3.22c0-.08.04-.16.12-.2,1.45-.85,2.99-1.78,4.54-2.83.8-.54.77-1.65-.05-2.17-1.51-.95-3.05-1.82-4.5-2.73-.07-.05-.12-.12-.12-.2V.24c0-.13.12-.24.26-.24h.04c.07,0,.14.03.19.07,2.93,2.79,6.45,6.04,9.42,8.53.05.05.08.11.08.18v.17c0,.07-.03.13-.08.18-3.05,2.57-6.45,5.94-9.46,8.8-.05.05-.12.07-.19.07Z"/>
+    </svg>
+  </button>
+  <button class="lightbox__close" data-lightbox-close aria-label="Close image viewer">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M5 5 19 19M19 5 5 19"/>
+    </svg>
+  </button>
+</dialog>
+
+
+<script>
+  import '../scripts/carousel';
+  import '../scripts/lightbox';
+</script>
