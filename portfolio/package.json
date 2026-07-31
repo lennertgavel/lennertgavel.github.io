@@ -8,7 +8,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.8.0",
+    "astro": "^7.1.1",
     "embla-carousel": "^8.5.2",
     "embla-carousel-wheel-gestures": "^8.1.0"
   }
