@@ -20,9 +20,11 @@ const images = getTabImages(tab.slug);
             <h2 class="intro__lead">{tab.lead}</h2>
             <Fragment set:html={tab.intro} />
           </div>
-          <div class="intro__figure">
-            <img class="zoomable" src={images[0]} alt={`${tab.label} — feature image`} decoding="async" draggable="false" />
-          </div>
+          {images[0] && (
+            <div class="intro__figure">
+              <img class="zoomable" src={images[0]} alt={`${tab.label} — feature image`} decoding="async" draggable="false" />
+            </div>
+          )}
         </div>
       </div>
       <!-- Image slides -->

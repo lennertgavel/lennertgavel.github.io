@@ -221,7 +221,7 @@ body {
   padding: clamp(24px, 4vw, 56px) clamp(28px, 5vw, 72px);
 }
 
-.intro {
+.intro:has(.intro__figure) {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);

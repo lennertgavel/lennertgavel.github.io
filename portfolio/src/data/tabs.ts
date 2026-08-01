@@ -42,7 +42,7 @@ export const tabs: Tab[] = [
     slug: 'drawing',
     label: 'Drawing',
     color: '#B23A2E',
-    accent: '#93a3bb',    
+    accent: '#E9A13B',    
     indent: 1.1,
     activeIndent: 0.35,
     lead: 'I like drawing',
@@ -54,7 +54,7 @@ export const tabs: Tab[] = [
     slug: 'coding',
     label: 'Coding',
     color: '#3E8F4E',
-    accent: '#233d64',
+    accent: '#E9A13B',
     indent: 7,
     activeIndent: 1.5,
     lead: 'I like building things',
@@ -63,3 +63,11 @@ export const tabs: Tab[] = [
 <p>Framework-agnostic by default, and always built on top of the web platform.</p>`,
   },
 ];
+
+const imageFiles = ['image.jpg', 'mdlr-1.jpg', 'mdlr-2.jpg'];
+
+/** Returns ~6 image paths for a tab by repeating the dummy files twice. */
+export function getTabImages(slug: string): string[] {
+  const base = imageFiles.map((f) => `/${slug}/${f}`);
+  return [...base, ...base];
+}
