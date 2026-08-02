@@ -40,7 +40,8 @@ const activeTab = tabs[activeIndex];
           )}
           {tab.label}
         </span>
-        {i === 0 && <span class="signature" transition:name="signature">{SIGNATURE}</span>}
+        {/* don't show signature */}
+        {/* {i === 0 && <span class="signature" transition:name="signature">{SIGNATURE}</span>} */}
       </a>
     ))}
   </main>
@@ -77,9 +78,10 @@ const activeTab = tabs[activeIndex];
           )}
           {activeTab.label}
         </span>
-        {activeTab.slug === 'about-me' && (
+        {/* Don't use signature */}
+        {/* {activeTab.slug === 'about-me' && (
           <span class="signature" transition:name="signature">{SIGNATURE}</span>
-        )}
+        )} */}
       </a>
       <div class="card__body">
         <slot />

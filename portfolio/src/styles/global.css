@@ -223,7 +223,7 @@ body {
 
 .intro:has(.intro__figure) {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-columns: minmax(250px, 450px) minmax(250px, 1fr);
   grid-template-rows: minmax(0, 1fr);
   gap: clamp(20px, 3vw, 24px);
   height: 100%;
@@ -231,22 +231,24 @@ body {
 
 .intro__lead {
   margin-bottom: clamp(10px, 1.5vh, 18px);
-  font-size: clamp(1.9rem, 4.2vw, 3.75rem);
+  font-size: clamp(1.5rem, 4.2vw, 3.75rem);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: var(--dark-color);
 
-  &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    max-width: 230px;
-    height: 30px;
-    margin-block-start: 20px;
-    margin-block-end: 20px;
-    background-repeat: repeat-x;
-    color: var(--active-accent);
+  @media (min-width: 768px) {
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      max-width: 230px;
+      height: 30px;
+      margin-block-start: 20px;
+      margin-block-end: 20px;
+      background-repeat: repeat-x;
+      color: var(--active-accent);
+    }
   }
 }
 
@@ -288,7 +290,7 @@ body {
 
 .intro__body {
   grid-column: 1;
-  min-width: 0;
+  min-width: 300px;
   column-count: 2;
   column-gap: clamp(16px, 3vw, 24px);
   align-self: start;
@@ -340,6 +342,12 @@ body {
   -webkit-user-drag: none;
   border: 2px solid var(--dark-color);
   border-radius: 12px;
+  max-width: 80dvw;
+  object-fit: cover;
+}
+
+.embla__slide--mobile-feature {
+  display: none;
 }
 
 /* ─── Carousel controls ─────────────────────────────── */
@@ -379,8 +387,7 @@ body {
 }
 
 .embla__btn:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
+  display: none;
 }
 
 /* ─── Lightbox ───────────────────────────────────────── */
@@ -455,8 +462,17 @@ body {
 }
 
 .lightbox__nav {
+  position: absolute;
   width: 60px;
   height: 60px;
+}
+
+.lightbox__nav--next {
+  inset: auto 5px auto auto;
+}
+
+.lightbox__nav--prev {
+  inset: auto auto auto 5px;
 }
 
 .lightbox__close {
@@ -492,14 +508,31 @@ body {
 
   .intro {
     grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr) auto;
     grid-template-areas:
       'lead'
       'body'
       'figure';
+    min-height: 0;
   }
 
   .intro__body {
+    min-width: 0;
+    min-height: 0;
     column-count: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .intro__figure {
+    display: none;
+    max-height: clamp(180px, 28vh, 260px);
+  }
+
+  .embla__slide--mobile-feature {
+    display: block;
   }
 
   .embla__slide--intro {
