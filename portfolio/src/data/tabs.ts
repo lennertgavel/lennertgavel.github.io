@@ -22,9 +22,8 @@ export const tabs: Tab[] = [
     indent: 0,
     activeIndent: 0,
     lead: "Hello, I'm Lennert",
-    intro: `<p>I'm a creative professional with a passion for visual storytelling — spanning lettering, illustration, and code. This portfolio is an exploration of those disciplines and the places where they intersect.</p>
-<p>I believe good design lives at the intersection of craft and intent. Whether I'm drawing letterforms by hand or architecting a web component, I bring the same attention to detail and curiosity to the work.</p>
-<p>Take a look around — each divider opens onto a different corner of the practice.</p>`,
+    intro: `<p>Achieving your goal with minimal effort — that's where the subtle beauty lies. In the refinement of typography, the simplicity of good code, the line work of an illustration. <br /> I work across lettering, illustration, and code — where I bring the same pursuit of elegance to each.</p>
+<p>Take a look around — each section holds a different corner of this practice.</p>`,
   },
   {
     slug: 'lettering',
@@ -34,9 +33,9 @@ export const tabs: Tab[] = [
     indent: 6,
     activeIndent: 1,
     lead: 'I like drawing letters',
-    intro: `<p>Hand-crafted letterforms, typographic compositions, and experimental scripts. Each piece begins as a sketch and evolves through layers of refinement into something that is both legible and expressive.</p>
-<p>Lettering is the art of drawing letters for a specific purpose — it lives outside the rules of type design and thrives on personality, context, and intention.</p>
-<p>The work below moves between disciplined structure and loose, gestural experiments.</p>`,
+    intro: `<p>I can spend an entire day perfecting a single letterform — refining its curves, adjusting its weight, exploring how it breathes on the page.</p>
+<p>Each piece explores the space between legibility and freedom of form. Typographic compositions, experimental scripts, hand-drawn forms that live outside the rules of traditional typeface design.</p>
+<p>Follow this work on <a href="https://instagram.com/letteringsoup" target="_blank">Instagram @letteringsoup</a></p>`,
   },
   {
     slug: 'drawing',
@@ -45,10 +44,10 @@ export const tabs: Tab[] = [
     accent: '#E9A13B',    
     indent: 1.1,
     activeIndent: 0.35,
-    lead: 'I like drawing',
-    intro: `<p>Illustrations, figure studies, and observational sketches. Drawing is the foundation of everything — a direct line between idea and page, thought and mark.</p>
-<p>These works range from quick studies to finished pieces and reflect an ongoing practice of seeing, observing, and interpreting the world through line and form.</p>
-<p>Every image starts the same way: a pencil, a surface, and the willingness to get it wrong first.</p>`,
+    lead: 'Drawing is my therapy',
+intro: `<p>Running a drawing business for five years made me lose my creative outlet and therapy. To reclaim it, I restructured my life: coding four days a week, leaving one full day just for me.</p>
+<p>It took time, but I've found the joy again—sketchbook open, good coffee in hand, drawing purely for myself in a quiet café.</p>
+<p>Taking time for drawing has become a cherished ritual again, and for this, <br/ > I am so grateful.</p>`,
   },
   {
     slug: 'coding',
@@ -57,10 +56,10 @@ export const tabs: Tab[] = [
     accent: '#E9A13B',
     indent: 7,
     activeIndent: 1.5,
-    lead: 'I like building things',
-    intro: `<p>Web components, interactive tools, and open-source contributions. Code, like lettering, is a craft — it rewards precision, benefits from iteration, and works best when the underlying structure is sound.</p>
-<p>Projects here lean toward the visual and interface-oriented — experiments in interaction, animation, and the expressive potential of the browser as a medium.</p>
-<p>Framework-agnostic by default, and always built on top of the web platform.</p>`,
+    lead: 'I can lose myself writing code',
+    intro: `<p>Good code is elegant — clear, maintainable, and built to last. I focus on visual and interactive experiences on the web: components, tools, and experiments that prioritize the human experience of interaction.</p>
+    <p>People call coding uncreative, but I don't buy that for a single second. The beauty of a book starts with fixed dimensions. Websites break that rule entirely. Where most traditional art looks back to recreate history, programming steps straight into uncharted territory.</p>
+    <p>Real digital creativity is still barely scratched. Give me that wild, open challenge to tackle every single day.</p>`,
   },
 ];
 
