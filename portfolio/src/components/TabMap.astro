@@ -1,6 +1,8 @@
 ---
 import { tabs, SIGNATURE } from '../data/tabs';
 
+const base = import.meta.env.BASE_URL;
+
 // Icons live in each tab's public asset folder (assets/<slug>/icon.svg).
 // Glob is lazy — we only use the keys to know which tabs actually have one.
 const iconModules = import.meta.glob('../../assets/*/icon.svg');
@@ -28,13 +30,13 @@ const activeTab = tabs[activeIndex];
     {tabs.map((tab, i) => (
       <a
         class="card card--stacked"
-        href={`/${tab.slug}/`}
+        href={`${base}${tab.slug}/`}
         style={`--depth: ${i}; --tab-indent: ${tab.indent}; --tab-color: ${tab.color};`}
         transition:name={`tab-${tab.slug}`}
       >
         <span class="card__title" transition:name={`title-${tab.slug}`}>
           {tabsWithIcon.has(tab.slug) && (
-            <img class="card__icon" src={`/${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
+            <img class="card__icon" src={`${base}${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
           )}
           {tab.label}
         </span>
@@ -50,13 +52,13 @@ const activeTab = tabs[activeIndex];
     {aboveTabs.map((tab, i) => (
       <a
         class="card card--peek card--above"
-        href={`/${tab.slug}/`}
+        href={`${base}${tab.slug}/`}
         style={`--i: ${i}; --depth: ${i}; --tab-indent: ${tab.indent}; --tab-color: ${tab.color};`}
         transition:name={`tab-${tab.slug}`}
       >
         <span class="card__title" transition:name={`title-${tab.slug}`}>
           {tabsWithIcon.has(tab.slug) && (
-            <img class="card__icon" src={`/${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
+            <img class="card__icon" src={`${base}${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
           )}
           {tab.label}
         </span>
@@ -68,10 +70,10 @@ const activeTab = tabs[activeIndex];
       style={`--depth: ${activeIndex}; --tab-indent: ${activeTab.indent}; --tab-active-indent: ${activeTab.activeIndent}; --tab-color: ${activeTab.color};`}
       transition:name={`tab-${activeTab.slug}`}
     >
-      <a class="card__header" href="/" aria-label="Back to home">
+      <a class="card__header" href={base} aria-label="Back to home">
         <span class="card__title" transition:name={`title-${activeTab.slug}`}>
           {tabsWithIcon.has(activeTab.slug) && (
-            <img class="card__icon" src={`/${activeTab.slug}/icon.svg`} alt="" aria-hidden="true" />
+            <img class="card__icon" src={`${base}${activeTab.slug}/icon.svg`} alt="" aria-hidden="true" />
           )}
           {activeTab.label}
         </span>
@@ -87,13 +89,13 @@ const activeTab = tabs[activeIndex];
     {belowTabs.map((tab, i) => (
       <a
         class="card card--peek card--below"
-        href={`/${tab.slug}/`}
+        href={`${base}${tab.slug}/`}
         style={`--i: ${i}; --depth: ${activeIndex + 1 + i}; --tab-indent: ${tab.indent}; --tab-color: ${tab.color};`}
         transition:name={`tab-${tab.slug}`}
       >
         <span class="card__title" transition:name={`title-${tab.slug}`}>
           {tabsWithIcon.has(tab.slug) && (
-            <img class="card__icon" src={`/${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
+            <img class="card__icon" src={`${base}${tab.slug}/icon.svg`} alt="" aria-hidden="true" />
           )}
           {tab.label}
         </span>
